@@ -41,7 +41,7 @@ function getAllImages()
 function getAllObjets()
 {
     global $pdo;
-    $req = $pdo->prepare("SELECT nom_sur_objet,date_trouv,ville,quartier,photo,id_person,id_type_objet FROM objets o 
+    $req = $pdo->prepare("SELECT nom_sur_objet,date_trouv,ville,quartier,photo,id_person,id_type_objet,o.id FROM objets o 
     INNER JOIN type_objet tpo ON o.id_type_objet = tpo.id
     INNER JOIN personne_t_nano p ON p.id = o.id_person");
     $req->execute();

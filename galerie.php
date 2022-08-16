@@ -1,5 +1,5 @@
 <?php require_once './backend/controllers.php';
-session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,30 +70,32 @@ session_start();
 							<div class="dlab-separator bg-primary"></div>
 							<p>Ces images representent la pluspart des objets trouvés dans différentes villes. Vous trouverez les informations y afférant en cliquant sur la description de l'image. </p>
 						</div>
-						<div class="blog-carousel owl-carousel owl-none blog-shadow-out">
+						<!-- <div class="blog-carousel owl-carousel owl-none blog-shadow-out">
 							<?php foreach ($allObjects as $obj) : ?>
+								<?php $i++; ?>
+								<h1><?= $i; ?></h1>
 								<div class="item">
 									<div class="blog-post dez-blog">
 										<div class="dlab-post-media">
-											<a href="blog-details.php"><img src="uploads/<?= $obj->photo; ?>" alt="<?= isset($obj->nom_sur_objet) ? $obj->nom_sur_objet : 'image objet' ?>" /></a>
+											<img src="uploads/<?= $obj->photo; ?>" alt="<?= isset($obj->nom_sur_objet) ? $obj->nom_sur_objet : 'image objet' ?>" />
 										</div>
 										<div class="dlab-info">
 											<div class="category-tag">
-
-												<span id=" <?= isset($obj->id_type_objet) ? $obj->id_type_objet : '' ?>">
-													Type: <?= (getOneTypeObjet($obj->id_type_objet)) ? getOneTypeObjet($obj->id_type_objet)->nom_objet : '' ?>
+												<h1><?= $obj->id; ?></h1>
+												<span id=" <?= isset($obj->id) ? $obj->id : '' ?>" style="color:darkslategray;font-weight:bold;">
+													Type: <?= (getOneTypeObjet($obj->id)) ? getOneTypeObjet($obj->id)->nom_objet : '' ?>
 												</span>
 
-												<a href="blog-details.php">Plus d'info...</a>
+												<a href="blog-details.php?id=<?= isset($obj->id) ? $obj->id : ''; ?>">Plus d'info...</a>
 											</div>
 											<div class="dlab-post-title ">
-												<h5 class="post-title"><a href="blog-details.php">Nom sur l'objèt: <?= isset($obj->nom_sur_objet) ? $obj->nom_sur_objet : '' ?></a></h5>
+												<h5 class="post-title"><a href="blog-details.php?id=<?= isset($obj->id) ? $obj->id : '';  ?>">Nom sur l'objèt: <?= isset($obj->nom_sur_objet) ? $obj->nom_sur_objet : '' ?></a></h5>
 											</div>
 
 											<div class="dlab-post-meta">
 												<ul>
-													<li class="post-author"><i class="icon-location-pin"></i> <a href="blog-details.php">Ville: <?= isset($obj->ville) ? $obj->ville : 'Default' ?></a> </li>
-													<li class="post-comment"><i class="icon-direction"></i> <a href="blog-details.php">Quartier: <?= isset($obj->quartier) ? $obj->quartier : 'Default' ?></a> </li>
+													<li class="post-author"><i class="icon-location-pin"></i><a href="blog-details.php?id=<?= $obj->id ?>">Ville: <?= isset($obj->ville) ? $obj->ville : 'Default' ?></a></li>
+													<li class="post-comment"><i class="icon-direction"></i><a href="blog-details.php?id=<?= $obj->id ?>">Quartier: <?= isset($obj->quartier) ? $obj->quartier : 'Default' ?></a> </li>
 												</ul>
 											</div>
 										</div>
@@ -101,6 +103,141 @@ session_start();
 								</div>
 							<?php endforeach; ?>
 
+						</div> -->
+						<div class="section-full content-inner bg-white">
+							<div class="container">
+								<!-- <div class="listing-filter m-b40">
+									<div class="d-flex">
+										<div class="mr-auto">
+											<ul class="filter m-b0">
+												<li>
+													<select>
+														<option>Default Filters</option>
+														<option>Construction</option>
+														<option>Corodinator</option>
+														<option>Employer</option>
+														<option>Financial Career</option>
+														<option>Information Technology</option>
+														<option>Marketing</option>
+														<option>Quality check</option>
+														<option>Real Estate</option>
+														<option>Sales</option>
+														<option>Supporting</option>
+														<option>Teaching</option>
+													</select>
+												</li>
+												<li>
+													<select>
+														<option>Distance Radius</option>
+														<option>Construction</option>
+														<option>Corodinator</option>
+														<option>Employer</option>
+														<option>Financial Career</option>
+														<option>Information Technology</option>
+														<option>Marketing</option>
+														<option>Quality check</option>
+														<option>Real Estate</option>
+														<option>Sales</option>
+														<option>Supporting</option>
+														<option>Teaching</option>
+													</select>
+												</li>
+												<li>
+													<select>
+														<option>More Filters</option>
+														<option>Construction</option>
+														<option>Corodinator</option>
+														<option>Employer</option>
+														<option>Financial Career</option>
+														<option>Information Technology</option>
+														<option>Marketing</option>
+														<option>Quality check</option>
+														<option>Real Estate</option>
+														<option>Sales</option>
+														<option>Supporting</option>
+														<option>Teaching</option>
+													</select>
+												</li>
+											</ul>
+										</div>
+										<div>
+											<ul class="filter-icon m-b0">
+												<li><a href="javascript:void(0)"><i class="fa fa-th"></i></a></li>
+												<li><a href="javascript:void(0)"><i class="fa fa-th-list"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div> -->
+								<div class="row" style="justify-content: space-around;">
+									<!-- <div class="col-lg-4 col-md-6 col-sm-6 m-b30">
+										<div class="listing-bx overlap">
+											<div class="listing-media">
+												<img src="images/listing/pic1.jpg" alt="">
+											</div>
+											<div class="listing-info">
+												<ul class="featured-star">
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+													<li><i class="fa fa-star"></i></li>
+
+												</ul>
+												<h3 class="title"><a href="listing-details.html">King Organic Shop</a></h3>
+											</div>
+											<ul class="wish-bx">
+												<li><a class="like-btn" href="javascript:void(0)"><i class="fa fa-heart"></i></a></li>
+												<li><a class="info-btn" href="javascript:void(0)"><i class="fa fa-leaf"></i></a></li>
+											</ul>
+										</div>
+									</div> -->
+
+									<?php foreach ($allObjects as $obj) : ?>
+
+										<div class="item" style="width: 350px; height: 350px">
+											<div class="blog-post dez-blog">
+												<div class="dlab-post-media">
+													<img src="uploads/<?= $obj->photo; ?>" alt="<?= isset($obj->nom_sur_objet) ? $obj->nom_sur_objet : 'image objet' ?>" style="" />
+												</div>
+												<div class="dlab-info">
+													<div class="category-tag">
+
+														<span id=" <?= isset($obj->id) ? $obj->id : '' ?>" style="color:darkblue;font-weight:bold;">
+															Type: <?= (getOneTypeObjet($obj->id_type_objet)) ? getOneTypeObjet($obj->id_type_objet)->nom_objet : '' ?>
+														</span>
+
+														<a href="blog-details.php?id=<?= isset($obj->id) ? $obj->id : ''; ?>">Plus d'info...</a>
+													</div>
+													<div class="dlab-post-title ">
+														<h5 class="post-title"><a href="blog-details.php?id=<?= isset($obj->id) ? $obj->id : '';  ?>">Nom sur l'objèt: <?= isset($obj->nom_sur_objet) ? $obj->nom_sur_objet : '' ?></a></h5>
+													</div>
+
+													<div class="dlab-post-meta">
+														<ul>
+															<li class="post-author"><i class="icon-location-pin"></i><a href="blog-details.php?id=<?= $obj->id ?>">Ville: <?= isset($obj->ville) ? $obj->ville : 'Default' ?></a></li>
+															<li class="post-comment"><i class="icon-direction"></i><a href="blog-details.php?id=<?= $obj->id ?>">Quartier: <?= isset($obj->quartier) ? $obj->quartier : 'Default' ?></a> </li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									<?php endforeach; ?>
+
+								</div>
+								<!-- Pagination start -->
+								<!-- <div class="pagination-bx clearfix text-center">
+									<ul class="pagination">
+										<li class="previous"><a href="javascript:void(0)"><i class="fa fa-arrow-left"></i></a></li>
+										<li><a href="javascript:void(0)">1</a></li>
+										<li><a href="javascript:void(0)">2</a></li>
+										<li><a href="javascript:void(0)">...</a></li>
+										<li class="active"><a href="javascript:void(0)">7</a></li>
+										<li class="next"><a href="javascript:void(0)"><i class="fa fa-arrow-right"></i></a></li>
+									</ul>
+								</div> -->
+								<!-- Pagination END -->
+							</div>
 						</div>
 					</div>
 				</div>
