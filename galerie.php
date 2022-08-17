@@ -1,5 +1,17 @@
 <?php require_once './backend/controllers.php';
-
+// var_dump(getAllTowns($_REQUEST['ville']));
+// var_dump(getAllObjetsByType($_REQUEST['id_type_objet']));
+// var_dump($allObjects);
+$arr = [];
+if (isset($_REQUEST['id_type_objet']) || isset($_REQUEST['ville'])) {
+	if (isset($_REQUEST['ville'])) {
+		$arr = getAllTowns($_REQUEST['ville']);
+	} else if (isset($_REQUEST['id_type_objet'])) {
+		$arr = getAllObjetsByType($_REQUEST['id_type_objet']);
+	} else {
+		$arr = $allObjects;
+	}
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -192,7 +204,7 @@
 										</div>
 									</div> -->
 
-									<?php foreach (isset($_REQUEST['id_type_objet']) ? getAllObjetsByType($_REQUEST['id_type_objet']) : $allObjects as $obj) : ?>
+									<?php foreach ($arr as $obj) : ?>
 
 										<div class="item" style="width: 350px; height: 350px">
 											<div class="blog-post dez-blog">

@@ -2,6 +2,8 @@
 require_once "./backend/functions.php";
 require_once "./backend/dbconnect.php";
 
+// require_once "./functions.php";
+// require_once "./dbconnect.php";
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
 $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : '';
 $nom_nano = isset($_REQUEST['nom_nano']) ? $_REQUEST['nom_nano'] : '';

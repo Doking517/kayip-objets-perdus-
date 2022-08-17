@@ -56,7 +56,7 @@ function getAllPersonTnano()
     $req->execute();
     return $req->fetchAll(PDO::FETCH_OBJ);
 }
-
+//ok
 function getAllObjetsByType($id_type_objet)
 {
     global $pdo;
@@ -64,6 +64,26 @@ function getAllObjetsByType($id_type_objet)
     $req->execute([$id_type_objet]);
     return $req->fetchAll(PDO::FETCH_OBJ);
 }
+
+
+function getAllTowns($ville)
+{
+    global $pdo;
+    $req = $pdo->prepare("SELECT * FROM objets WHERE ville LIKE '%$ville%'");
+    $req->execute();
+    return $req->fetchAll(PDO::FETCH_OBJ);
+}
+
+function getAllObjectByTowns($all_objects)
+{
+    $towns = [];
+
+    foreach ($all_objects as $obj) {
+        array_push($towns, $obj->ville);
+    }
+    return $towns;
+}
+
 //ok
 function getAllTypeObjet()
 {

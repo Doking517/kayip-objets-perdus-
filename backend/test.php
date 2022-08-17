@@ -1,5 +1,5 @@
 <?php
-require_once './functions.php';
+require_once './controllers.php';
 
-var_dump(getAllObjetsByType(2));
+var_dump(getAllTowns('Bafoussam'));
 die();

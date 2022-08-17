@@ -1,4 +1,5 @@
-<?php require_once './backend/controllers.php';
+<?php
+require_once './backend/controllers.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,11 +81,17 @@
 								<div id="place" class="tab-pane active">
 									<form method="POST" action="./galerie.php">
 										<div class="input-group">
-											<div class="col-md-9">
-												<select class="form-select" name="id_type_objet" id="" required>
+											<div class="row col-md-9">
+												<select class="form-select col-md-4" name="id_type_objet" id="" required>
 													<option selected disabled><?= isset($obj_t_nano->id_type_objet) ? $obj_t_nano->id_type_objet : ''; ?>Quel type de document avez-vous perdu???</option>
 													<?php foreach ($TypeObjects as $to) : ?>
 														<option name="" value="<?= isset($to->id) ? $to->id : '' ?>"><?= $to->nom_objet ?></option>
+													<?php endforeach; ?>
+												</select>
+												<select class="form-select col-md-3" name="ville" id="" required>
+													<option selected disabled><?= isset($obj_t_nano->id_type_objet) ? $obj_t_nano->id_type_objet : ''; ?>Dans quelle ville avez-vous perdu???</option>
+													<?php foreach (getAllObjectByTowns($allObjects) as $to) : ?>
+														<option value="<?= $to ?>"><?= $to ?></option>
 													<?php endforeach; ?>
 												</select>
 											</div>
