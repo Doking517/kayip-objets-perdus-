@@ -1,3 +1,5 @@
+<?php require_once './backend/controllers.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,17 +78,18 @@
 						</ul> -->
 							<div class="tab-content">
 								<div id="place" class="tab-pane active">
-									<form>
+									<form method="POST" action="./galerie.php">
 										<div class="input-group">
-											<!-- <input type="text" class="form-control" placeholder="What are you looking for?"> -->
-											<div class="form-control">
-												<select>
-													<option>Sélectionnez la ville où votre objet a été perdu</option>
-
+											<div class="col-md-9">
+												<select class="form-select" name="id_type_objet" id="" required>
+													<option selected disabled><?= isset($obj_t_nano->id_type_objet) ? $obj_t_nano->id_type_objet : ''; ?>Quel type de document avez-vous perdu???</option>
+													<?php foreach ($TypeObjects as $to) : ?>
+														<option name="" value="<?= isset($to->id) ? $to->id : '' ?>"><?= $to->nom_objet ?></option>
+													<?php endforeach; ?>
 												</select>
 											</div>
-											<div class="input-group-prepend">
-												<button class="site-button text-uppercase"><i class="fa m-r5 fa-search"></i> Rechercher</button>
+											<div class="input-group-prepend col-md-3">
+												<button type="submit" class="site-button text-uppercase" style="color: white;"><i class="fa m-r5 fa-search"></i> Rechercher</button>
 											</div>
 										</div>
 									</form>
@@ -145,8 +148,6 @@
 
 								nous avons besoin d’une preuve de la propriété pour :
 								<br><br>
-								<span class="ti-control-forward"> Trousceaux de clés</span>
-								<br>
 								<span class="ti-control-forward"> Documents et diplômes</span>
 								<br>
 								<span class="ti-control-forward"> Pièces d'identités</span>
@@ -196,74 +197,7 @@
 				</div>
 				<!-- Why Chose Us End -->
 				<!-- Our Portfolio -->
-				<!-- <div class="section-full content-inner bg-gray">
-                <div class="container">
-					<div class="section-head text-center">
-						<h2 class="box-title">What Our Users Say</h2>
-						<div class="dlab-separator bg-primary"></div>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-					</div>
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="row">
-								<div id="owl-demo" class="testimonial-one owl-loaded owl-theme owl-carousel owl-btn-center-lr owl-btn-3 owl-dots-primary-big">
-									<div class="item">
-										<div class="client-box">
-											<div class="client-detail">
-												<div class="client-img">
-													<img src="images/testimonials/pic1.jpg" width="100" height="100" alt="">
-												</div>
-												<div class="client-info">
-													<h5 class="client-name">Diamond Anderson</h5> 
-													<span>Founder, uihub inc.</span> 
-												</div>
-											</div>
-											<div class="client-info-bx">
-												<h5>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. </h5>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-											</div>
-										</div>
-									</div>
-									<div class="item">
-										<div class="client-box">
-											<div class="client-detail">
-												<div class="client-img">
-													<img src="images/testimonials/pic2.jpg" width="100" height="100" alt="">
-												</div>
-												<div class="client-info">
-													<h5 class="client-name">Diamond Anderson</h5> 
-													<span>Founder, uihub inc.</span> 
-												</div>
-											</div>
-											<div class="client-info-bx">
-												<h5>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. </h5>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-											</div>
-										</div>
-									</div>
-									<div class="item">
-										<div class="client-box">
-											<div class="client-detail">
-												<div class="client-img">
-													<img src="images/testimonials/pic3.jpg" width="100" height="100" alt="">
-												</div>
-												<div class="client-info">
-													<h5 class="client-name">Diamond Anderson</h5> 
-													<span>Founder, uihub inc.</span> 
-												</div>
-											</div>
-											<div class="client-info-bx">
-												<h5>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. </h5>
-												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-            </div> -->
+
 				<!-- Our Portfolio END -->
 				<!-- Featured Destinations -->
 
@@ -278,6 +212,7 @@
 		<button class="scroltop fa fa-chevron-up"></button>
 	</div>
 	<!-- JAVASCRIPT FILES ========================================= -->
+	<script src="./js/customIndex.js" defer></script>
 	<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 	<script src="js/combining.js"></script><!-- CONTACT JS  -->
 	<script src="js/dz.carousel.min.js"></script><!-- CONTACT JS  -->

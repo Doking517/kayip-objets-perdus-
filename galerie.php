@@ -168,7 +168,7 @@
 										</div>
 									</div>
 								</div> -->
-								<div class="row" style="justify-content: space-around;">
+								<div class="row" style="justify-content: space-evenly;">
 									<!-- <div class="col-lg-4 col-md-6 col-sm-6 m-b30">
 										<div class="listing-bx overlap">
 											<div class="listing-media">
@@ -192,7 +192,7 @@
 										</div>
 									</div> -->
 
-									<?php foreach ($allObjects as $obj) : ?>
+									<?php foreach (isset($_REQUEST['id_type_objet']) ? getAllObjetsByType($_REQUEST['id_type_objet']) : $allObjects as $obj) : ?>
 
 										<div class="item" style="width: 350px; height: 350px">
 											<div class="blog-post dez-blog">

@@ -57,6 +57,13 @@ function getAllPersonTnano()
     return $req->fetchAll(PDO::FETCH_OBJ);
 }
 
+function getAllObjetsByType($id_type_objet)
+{
+    global $pdo;
+    $req = $pdo->prepare("SELECT * FROM objets WHERE id_type_objet=?");
+    $req->execute([$id_type_objet]);
+    return $req->fetchAll(PDO::FETCH_OBJ);
+}
 //ok
 function getAllTypeObjet()
 {
@@ -95,6 +102,8 @@ function getOneTypeObjet($id)
     $req->execute([$id]);
     return $req->fetch(PDO::FETCH_OBJ);
 }
+
+
 
 // this part contains all the update functions
 

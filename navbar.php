@@ -5,8 +5,8 @@
             <div class="container clearfix">
                 <!-- website logo -->
                 <div class="logo-header mostion">
-                    <a href="index.php" class="logo-1"><img src="images/logo-white-1.png" alt=""></a>
-                    <a href="index.php" class="logo-2"><img src="images/logo-black-1.png" alt=""></a>
+                    <a href="index.php" class="logo-1"><img src="images/bon logo (2)" alt=""></a>
+                    <a href="index.php" class="logo-2"><img src="images/bon logo (2)" alt=""></a>
                 </div>
                 <!-- nav toggle button -->
                 <button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
