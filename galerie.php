@@ -11,6 +11,8 @@ if (isset($_REQUEST['id_type_objet']) || isset($_REQUEST['ville'])) {
 	} else {
 		$arr = $allObjects;
 	}
+} else {
+	$arr = $allObjects;
 }
 ?>
 <!DOCTYPE html>
